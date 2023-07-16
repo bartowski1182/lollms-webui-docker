@@ -39,6 +39,6 @@ tty/stdin_open are needed in order to trick Werkzeug, without standard input ope
 
 # Pre-built image
 
-Pre-built images are provided at https://hub.docker.com/r/noneabove1182/lollms-webui
+Pre-built images are provided at https://hub.docker.com/r/noneabove1182/lollms-webui-docker
 
 Follow the same commands as above except with noneabove1182/lollms-webui:(version)
