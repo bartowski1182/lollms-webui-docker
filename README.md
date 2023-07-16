@@ -27,7 +27,7 @@ Note: -it is needed to trick Werkzeug into think it's not a production server (w
 
 # Running the image with docker compose
 
-A docker-compose.yaml file has been provided, as well as a .env file that I use for setting my model dir and the model name I'd like to load in with
+A docker-compose.yaml file has been provided, as well as a .env file that I use for setting my model dir
 
 Feel free to modify both to fit your needs
 
