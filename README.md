@@ -4,7 +4,13 @@ I am providing this work as a helpful hand to people who are looking for a simpl
 
 # lollms-webui-docker
 
-Docker images and configuration to run lollms-webui with GPU, currently updated to release v3.0 found here: https://github.com/ParisNeo/lollms-webui/releases/tag/v3.0
+Docker images and configuration to run lollms-webui with GPU, currently updated to release v3.5 found here: https://github.com/ParisNeo/lollms-webui/releases/tag/v3.5
+
+For 3.5 it also includes a fix for some personality loading issue I was facing, so I'm injecting a couple lines of code into app.py in the docker build file:
+
+RUN sed -i "/language = request.args.get('language')/a \ if language is None:\n language = 'english'" app.py
+
+Basically this looks for the request.args.get for language, which I noticed wasn't being set during the fetch, and so if it's none I just set it to english
 
 # Build instructions
 
