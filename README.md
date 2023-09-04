@@ -4,13 +4,7 @@ I am providing this work as a helpful hand to people who are looking for a simpl
 
 # lollms-webui-docker
 
-Docker images and configuration to run lollms-webui with GPU, currently updated to release v3.5 found here: https://github.com/ParisNeo/lollms-webui/releases/tag/v3.5
-
-For 3.5 it also includes a fix for some personality loading issue I was facing, so I'm injecting a couple lines of code into app.py in the docker build file:
-
-RUN sed -i "/language = request.args.get('language')/a \ if language is None:\n language = 'english'" app.py
-
-Basically this looks for the request.args.get for language, which I noticed wasn't being set during the fetch, and so if it's none I just set it to english
+Docker images and configuration to run lollms-webui with GPU, currently updated to release v3.5 found here: https://github.com/ParisNeo/lollms-webui/releases/tag/v6.0
 
 # Build instructions
 
@@ -30,7 +24,7 @@ docker build -t lollms-webui-docker:latest .
 # Running the image with docker run
 
 ```sh
-docker run -it --gpus all -p 9600:9600 -v /models:/models -v ./help:/lollms-webui/help -v ./data:/lollms-webui/data -v ./data/.parisneo:/root/.parisneo/ -v ./configs:/lollms-webui/configs -v ./web:/lollms-webui/web lollms-webui-docker:latest python3 app.py --host 0.0.0.0 --port 9600 --db_path data/database.db
+docker run -it --gpus all -p 9600:9600 -v /models:/models -v ./help:/lollms-webui/help -v ./data:/lollms-webui/data -v ./data/.parisneo:/root/.parisneo/ -v ./configs:/lollms-webui/configs lollms-webui-docker:latest python3 app.py --host 0.0.0.0 --port 9600 --db_path data/database.db
 ```
 
 Note: -it is needed to trick Werkzeug into think it's not a production server (which is fine if you're not deploying this, as you shouldn't be...)

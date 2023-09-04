@@ -1,14 +1,12 @@
 version: '3.9'
-
 services:
   webui:
+    runtime: nvidia
     volumes:
       - '${MODEL_DIR}:/models'
-      - ./data:/lollms-webui/help
       - ./data:/lollms-webui/data
       - ./data/.parisneo:/root/.parisneo/
       - ./configs:/lollms-webui/configs
-      - ./web:/lollms-webui/web
     ports:
       - "7860:9600"
     image: 'noneabove1182/lollms-webui-docker:latest'

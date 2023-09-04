@@ -1,10 +1,9 @@
 # =================== Lord Of Large Language Models Configuration file =========================== 
-version: 15
-binding_name: c_transformers
-model_name: CHANGEME
+version: 22
+binding_name: null
+model_name: null
 
-# Enables gpu usage
-enable_gpu: true
+
 
 # Host information
 host: localhost
@@ -24,7 +23,7 @@ repeat_penalty: 1.2
 n_threads: 8
 
 #Personality parameters
-personalities: ["english/generic/lollms"]
+personalities: ["generic/lollms"]
 active_personality_id: 0
 override_personality_model_parameters: false #if true the personality parameters are overriden by those of the configuration (may affect personality behaviour) 
 
@@ -34,15 +33,32 @@ use_user_name_in_discussions: false
 user_avatar: default_user.svg
 
 # UI parameters
-debug: False
 db_path: database.db
 
-# Automatic update
-auto_update: false
-
+# Automatic updates
+debug: False
+auto_update: true
+auto_save: true
+# Enables gpu usage
+enable_gpu: true
+# Automatically open the browser
+auto_show_browser: true
 
 # Audio
 audio_in_language: 'en-US'
 audio_out_voice: null
 auto_speak: false
-silenceTimer: 5000
+audio_pitch: 1
+audio_auto_send_input: true
+audio_silenceTimer: 5000
+
+# Data vectorization
+use_files: true # Activate using files
+data_vectorization_activate: true # To activate/deactivate data vectorization
+data_vectorization_method: "ftidf_vectorizer" #"model_embedding" or "ftidf_vectorizer"
+data_visualization_method: "PCA" #"PCA" or "TSNE"
+data_vectorization_save_db: False # For each new session, new files
+data_vectorization_chunk_size: 512 # chunk size
+data_vectorization_overlap_size: 128 # overlap between chunks size
+data_vectorization_nb_chunks: 2 # number of chunks to use
+data_vectorization_build_keys_words: false # If true, when querrying the database, we use keywords generated from the user prompt instead of the prompt itself.
