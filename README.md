@@ -4,7 +4,7 @@ I am providing this work as a helpful hand to people who are looking for a simpl
 
 # lollms-webui-docker
 
-Docker images and configuration to run lollms-webui with GPU, currently updated to release v3.5 found here: https://github.com/ParisNeo/lollms-webui/releases/tag/v6.0
+Docker images and configuration to run lollms-webui with GPU, currently updated to release v6.0 found here: https://github.com/ParisNeo/lollms-webui/releases/tag/v6.0
 
 # Build instructions
 
